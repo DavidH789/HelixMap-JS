@@ -1,5 +1,11 @@
 # HelixMap-JS
 
+[![DOI](https://zenodo.org)](https://doi.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Live Site](https://shields.io)](https://github.io)
+
+
+
 **Hierarchical Admixture & PCA Stability Lab** — browser-only tool for continent → region → population **genetic signal** from consumer raw DNA (23andMe / AncestryDNA / MyHeritage / VCF-style text).
 
 > **Not genealogical ancestry percentages.** Numbers are model contributions under the current reference panel (REAL 1000G + literature + blend proxies), with explicit quality weighting and validation diagnostics.

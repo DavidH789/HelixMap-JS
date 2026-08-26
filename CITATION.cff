@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "HelixMap-JS: Hierarchical Admixture & PCA Stability Lab"
+message: "If you use this software, please cite it using the metadata from this file (and the Zenodo DOI once available)."
+type: software
+authors:
+  - name: "David"
+    alias: "DavidH789"
+    website: "https://github.com/DavidH789"
+repository-code: "https://github.com/DavidH789/helixmap-js"
+url: "https://github.com/DavidH789/helixmap-js"
+abstract: >-
+  Browser-only hierarchical admixture and PCA stability lab for consumer
+  raw DNA (23andMe, AncestryDNA, MyHeritage). Computes continent → region →
+  population model contributions with quality-weighted reference frequencies
+  (REAL 1000G, literature, blends), LD-pruned frequency PCA, and real 1000G
+  hold-out / LOO benchmarks. All processing is client-side.
+keywords:
+  - admixture
+  - PCA
+  - population genetics
+  - 1000 Genomes
+  - consumer genomics
+  - browser
+  - open science
+license: MIT
+version: "18.5"
+date-released: "2026-08-26"
+# identifiers:
+#   - type: doi
+#     value: 10.5281/zenodo.XXXXXXX

@@ -1,8 +1,7 @@
 # HelixMap-JS
 
-[![DOI](https://zenodo.org)](https://doi.org)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22115165.svg)](https://doi.org/10.5281/zenodo.22115165)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Live Site](https://shields.io)](https://github.io)
 
 
 
@@ -58,7 +57,7 @@ See in-app **Лабораторія** tabs and changelog for version history (v1
 
 ## Citation
 
-If you use HelixMap-JS in coursework, research, or applications (e.g. FLEX / UWC portfolio), please cite the Zenodo DOI once published:
+If you use HelixMap-JS in coursework, research, or applications (e.g. FLEX / UWC portfolio), please cite:
 
 ```
 David (@DavidH789). HelixMap-JS: Hierarchical Admixture & PCA Stability Lab (browser).

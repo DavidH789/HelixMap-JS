@@ -61,8 +61,7 @@ If you use HelixMap-JS in coursework, research, or applications (e.g. FLEX / UWC
 
 ```
 David (@DavidH789). HelixMap-JS: Hierarchical Admixture & PCA Stability Lab (browser).
-Version 18.5. https://github.com/DavidH789/helixmap-js
-```
+Version 19.0. https://github.com/DavidH789/HelixMap-JS
 
 `CITATION.cff` will be updated with the DOI after the first Zenodo release.
 

@@ -1,0 +1,49 @@
+name: HelixMap Desktop Windows Build
+
+on:
+  push:
+    paths:
+      - "desktop/**"
+      - ".github/workflows/desktop-build.yml"
+  pull_request:
+    paths:
+      - "desktop/**"
+      - ".github/workflows/desktop-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: desktop
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+
+      - name: Install dependencies from lockfile
+        run: npm ci
+
+      - name: Verify JavaScript syntax
+        run: node --check main.js
+
+      - name: Build Windows installer
+        run: npm run dist
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HelixMap-Desktop-Setup-2.0.0
+          path: desktop/release/HelixMap-Desktop-Setup-2.0.0.exe
+          if-no-files-found: error
+          retention-days: 14

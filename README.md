@@ -3,84 +3,79 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22115165.svg)](https://doi.org/10.5281/zenodo.22115165)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+**Hierarchical Admixture & PCA Stability Lab** — a browser-based tool for exploring continent → region → population genetic signals from consumer raw DNA files (23andMe, AncestryDNA, MyHeritage, and VCF-style text).
 
+> **Important:** results are model contributions under the current reference panel, not genealogical ancestry percentages, medical findings, or forensic conclusions.
 
-**Hierarchical Admixture & PCA Stability Lab** — browser-only tool for continent → region → population **genetic signal** from consumer raw DNA (23andMe / AncestryDNA / MyHeritage / VCF-style text).
+## Editions
 
-> **Not genealogical ancestry percentages.** Numbers are model contributions under the current reference panel (REAL 1000G + literature + blend proxies), with explicit quality weighting and validation diagnostics.
+### Browser edition
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-<!-- After Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX) -->
+- Open `index.html` in a modern browser, or use the hosted version if available.
+- Load your own raw DNA file locally.
+- Processing is designed to run on your device; review the app's privacy notes before use.
+
+### Windows desktop edition
+
+A Windows desktop wrapper built with Electron is available in [`desktop/`](desktop/).
+
+- **Installer:** check the [GitHub Releases page](https://github.com/DavidH789/HelixMap-JS/releases). A downloadable installer must be attached to a release before this link provides a direct download.
+- **Source and build instructions:** [`desktop/README.md`](desktop/README.md).
+- **Current desktop package version:** 2.0.0.
+
+The desktop edition packages the app for Windows. It does not turn the tool into a clinical or forensic product.
 
 ## Features
 
-- **Hierarchical EM**: continents → regions → populations (region-first EUR to reduce NW_EUR leakage)
-- **Frequency quality weighting**: REAL 1000G (1.0) > literature APPROX (0.80) > BLEND (0.30) > proxy
-- **PCA (v17+)**: LD-pruning + √Rosenberg *Iₙ* weights, PC1–PC3, Procrustes stability lab
-- **Validation**: real NYGC 30× 1000G individuals, hold-out / LOO benchmarks, self-simulation
-- **Privacy**: all computation **client-side**; optional local DNA cache (IndexedDB) with one-click delete
-- **Lab UI**: quality inventory, robustness / model trust, Full model vs REAL-only comparison
+- Hierarchical admixture modelling: continents → regions → populations.
+- Frequency quality weighting for reference data.
+- PCA and stability diagnostics.
+- Validation and model-comparison tools.
+- Client-side processing design; any optional local caching is controlled by the app/browser.
 
 ## Quick start
 
-1. Download [`index.html`](index.html) (or clone this repo).
-2. Open in **Chrome / Firefox / Safari** (on iPhone: Share → Open in Safari, not Files preview).
-3. Drop a raw DNA `.txt` / `.csv` / `.zip`.
-4. Optional: leave **“Зберігати файл локально”** checked so the next visit restores from browser IndexedDB; use **Видалити збережені дані** to clear.
+1. Open `index.html` in Chrome, Firefox, or another modern browser.
+2. Load a supported raw DNA text/CSV/ZIP file.
+3. Review the in-app quality indicators and limitations before interpreting results.
 
-No server, no account, no upload.
+No account or server is required for the browser workflow. Avoid uploading personal genetic data to public repositories, issues, or discussions.
 
-## What it is / is not
+## Interpretation limits
 
-| Is | Is not |
-|----|--------|
-| Model contribution / genetic signal map | Clinical or forensic report |
-| Open methodology + benchmarks | “X% Ukrainian blood” genealogy |
-| Local-only processing | Cloud DNA analysis |
+| Suitable for | Not suitable for |
+| --- | --- |
+| Exploratory genetic-signal visualisation | Clinical diagnosis or treatment decisions |
+| Learning about PCA and reference-panel models | Forensic identification |
+| Comparing model outputs with their stated limitations | Definitive claims of national or ethnic identity |
 
-Country-level proxies (POL/UKR/…) are often genetically close; treat weak country % with caution. Strong regional / continental signals are more reliable.
-
-## Methods (short)
-
-- **Likelihood**: supervised-style EM on allele frequencies; SNPs weighted by reference quality and informativeness.
-- **Hierarchy**: continent EM → region EM (EUR split: NW / E / S / SE / JEW) → population EM inside strong regions.
-- **PCA**: frequency matrix only (labels not in the Gram matrix); LD-pruned panel; stability via hold-out, LOPO, Procrustes.
-- **Benchmarks**: embedded real 1000G genotype vectors (NYGC high-coverage subset) for LOO / hold-out; self-sim for upper bound only.
-
-See in-app **Лабораторія** tabs and changelog for version history (v17–v18.5).
+Country-level populations can be genetically close, and weak country-level estimates should be treated cautiously. Reference-panel coverage and data quality affect results.
 
 ## Privacy
 
-- Raw genotypes never leave the device.
-- Optional cache uses **IndexedDB** in your browser only.
-- Clear via the in-app button or browser site data settings.
+- Treat raw genotypes and personal DNA reports as highly sensitive information.
+- Do not commit personal DNA files, API keys, access tokens, or private test results to this repository.
+- Check the app's own privacy and caching controls before processing your data.
 
 ## Citation
 
-If you use HelixMap-JS in coursework, research, or applications (e.g. FLEX / UWC portfolio), please cite:
+If you use HelixMap-JS in coursework, research, or a portfolio, cite:
 
-```
-David (@DavidH789). HelixMap-JS: Hierarchical Admixture & PCA Stability Lab (browser).
-Version 19.0. https://github.com/DavidH789/HelixMap-JS
+> David (@DavidH789). *HelixMap-JS: Hierarchical Admixture & PCA Stability Lab*. Version 19.0. https://github.com/DavidH789/HelixMap-JS
 
-`CITATION.cff` will be updated with the DOI after the first Zenodo release.
+## License and third-party data
 
-## License
-
-Code: **MIT** (see [LICENSE](LICENSE)).
-
-Reference allele frequencies and embedded 1000 Genomes–derived materials remain under their original public data terms (1000 Genomes / NYGC and cited literature). This repository does not claim ownership of those data.
+The project code is released under the MIT License; see [`LICENSE`](LICENSE). Reference allele frequencies and embedded 1000 Genomes/NYGC-derived materials remain subject to their original terms and the relevant cited sources. This repository does not claim ownership of those third-party data.
 
 ## Author
 
-**David** ([@DavidH789](https://github.com/DavidH789)) — front-end developer (HTML / CSS / JavaScript).  
-Related: [HelixOne](https://github.com/DavidH789/HelixOne) (multi-provider DNA ethnicity report merger).  
-Open science / portfolio project (2026). Issues and PRs welcome after public release.
+**David** — [@DavidH789](https://github.com/DavidH789). Issues and pull requests are welcome.
 
-## Roadmap (optional)
+Related project: [HelixOne](https://github.com/DavidH789/HelixOne).
 
-- [x] English UI toggle (UA | EN)
-- [ ] Modular JS split (engine vs UI)
-- [ ] Export JSON/CSV results
-- [ ] Zenodo DOI + CITATION.cff update
-- [ ] Minimal offline service worker (app shell only; DNA stays in IndexedDB)
+## Roadmap
+
+- [ ] Further separate the model engine from the UI.
+- [ ] Export results to JSON/CSV.
+- [ ] Improve documentation and reproducibility notes.
+- [ ] Review offline support and browser storage controls.
